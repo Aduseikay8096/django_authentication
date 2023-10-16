@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration and Login Page</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.username }}</h1>
+        <p><a href="#" onclick="confirmLogout()">Logout</a></p>
+    {% else %}
+        <h1>Welcome to our website</h1>
+        <p>If you are a new user, you can <a href="/register_user">Register</a> here.</p>
+        <p>If you already have an account, you can <a href="/login_user">Login</a> here.</p>
+    {% endif %}
+    
+    <script>
+        function confirmLogout() {
+            if (window.confirm("Are you sure you want to logout?")) {
+                // Redirect to the logout URL
+                window.location.href = "/logout";
+            }
+        }
+    </script>
+</body>
+</html>
